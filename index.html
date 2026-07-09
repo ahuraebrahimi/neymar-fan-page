@@ -1,0 +1,2747 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neymar Jr. — Prince of Football</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Inter:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* ===== RESET & BASE ===== */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --yellow: #ffd700;
+        --yellow-solid: #ffd700;
+        --blue: #0033a0;
+        --blue-dark: #002277;
+        --white: #ffffff;
+        --black: #0a0a0a;
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+        --radius: 24px;
+        --transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--yellow);
+        color: var(--black);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--yellow);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--blue);
+        border-radius: 12px;
+      }
+
+      /* ===== UTILITY ===== */
+      .section-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.8rem, 10vw, 6rem);
+        color: var(--blue);
+        letter-spacing: 3px;
+        line-height: 1;
+        margin-bottom: 8px;
+        text-shadow: 6px 6px 0 rgba(0, 51, 160, 0.1);
+      }
+      .section-sub {
+        font-size: 1.1rem;
+        color: var(--blue-dark);
+        opacity: 0.7;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        margin-bottom: 4px;
+      }
+      .on-blue .section-title {
+        color: var(--yellow);
+        text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+      }
+      .on-blue .section-sub {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .text-center {
+        text-align: center;
+      }
+      .mb-60 {
+        margin-bottom: 60px;
+      }
+      .subhead {
+        font-family: "Anton", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin: 50px 0 30px;
+        text-align: center;
+      }
+      .subhead:first-of-type {
+        margin-top: 10px;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s ease;
+      }
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s ease;
+      }
+      .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 44px;
+        border-radius: 60px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        font-family: "Inter", sans-serif;
+      }
+      .btn-primary {
+        background: var(--blue);
+        color: var(--yellow);
+        box-shadow: 0 10px 40px rgba(0, 51, 160, 0.35);
+      }
+      .btn-primary:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(0, 51, 160, 0.5);
+        background: var(--blue-dark);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--blue);
+        border: 3px solid var(--blue);
+      }
+      .btn-secondary:hover {
+        background: var(--blue);
+        color: var(--yellow);
+        transform: translateY(-6px);
+        box-shadow: 0 12px 40px rgba(0, 51, 160, 0.25);
+      }
+      .btn-glow {
+        animation: glowPulse 2.8s ease-in-out infinite;
+      }
+      @keyframes glowPulse {
+        0%,
+        100% {
+          box-shadow: 0 10px 40px rgba(0, 51, 160, 0.35);
+        }
+        50% {
+          box-shadow: 0 10px 60px rgba(0, 51, 160, 0.7);
+        }
+      }
+
+      /* ===== GLASS CARD ===== */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: var(--radius);
+        border: 2px solid rgba(0, 51, 160, 0.08);
+        transition: var(--transition);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+      }
+      .glass-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow);
+        border-color: var(--blue);
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      /* ===== SECTION PATTERN (yellow) ===== */
+      .section-pattern {
+        padding: 120px 0;
+        background: var(--yellow);
+        position: relative;
+        overflow: hidden;
+      }
+      .section-pattern::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0L75 45L120 60L75 75L60 120L45 75L0 60L45 45z' fill='%230033a0' fill-opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+      }
+      .section-pattern .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ===== SECTION BLUE ===== */
+      .section-blue {
+        padding: 120px 0;
+        background: var(--blue);
+        position: relative;
+        color: var(--yellow);
+      }
+      .section-blue .section-title {
+        color: var(--yellow);
+        text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .section-blue .section-sub {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .section-blue .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ===== FAN STRIP ===== */
+      .fan-strip {
+        background: var(--blue-dark);
+        color: rgba(255, 255, 255, 0.85);
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 10px 20px;
+        position: relative;
+        z-index: 10;
+      }
+      .fan-strip i {
+        color: var(--yellow);
+        margin-right: 8px;
+      }
+
+      /* ===== NAVBAR ===== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 16px 30px;
+        background: rgba(247, 212, 74, 0.85);
+        backdrop-filter: blur(18px) saturate(180%);
+        border-bottom: 2px solid rgba(0, 51, 160, 0.1);
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .navbar.scrolled {
+        background: rgba(247, 212, 74, 0.96);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+        padding: 12px 30px;
+      }
+      .nav-logo {
+        font-family: "Anton", sans-serif;
+        font-size: 2rem;
+        color: var(--blue);
+        letter-spacing: 3px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-logo i {
+        font-size: 1.8rem;
+        color: var(--blue);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--blue);
+        letter-spacing: 1.4px;
+        transition: var(--transition);
+        position: relative;
+        padding: 4px 0;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--blue);
+        transition: var(--transition);
+        border-radius: 4px;
+      }
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 100%;
+      }
+      .nav-links a:hover {
+        color: var(--blue-dark);
+      }
+      .nav-social {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+      .nav-social a {
+        color: var(--blue);
+        font-size: 1.1rem;
+        transition: var(--transition);
+        opacity: 0.7;
+      }
+      .nav-social a:hover {
+        opacity: 1;
+        transform: scale(1.15);
+        color: var(--blue-dark);
+      }
+      .nav-hamburger {
+        display: none;
+        font-size: 1.8rem;
+        color: var(--blue);
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+        line-height: 1;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 140px 0 80px;
+        position: relative;
+        overflow: hidden;
+        background: var(--yellow-solid);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -30%;
+        right: -10%;
+        width: 70%;
+        height: 150%;
+        background: radial-gradient(
+          ellipse at 70% 50%,
+          rgba(0, 51, 160, 0.04) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-text .badge {
+        display: inline-block;
+        background: var(--blue);
+        color: var(--yellow);
+        font-weight: 800;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        padding: 8px 24px;
+        border-radius: 60px;
+        margin-bottom: 18px;
+      }
+      .hero-text .badge i {
+        margin-right: 8px;
+      }
+      .hero-text h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(4rem, 14vw, 9rem);
+        line-height: 0.9;
+        color: var(--blue);
+        letter-spacing: 6px;
+        text-shadow: 10px 10px 0 rgba(0, 51, 160, 0.08);
+      }
+      .hero-text h1 .highlight {
+        color: var(--yellow-solid);
+        -webkit-text-stroke: 4px var(--blue);
+        text-stroke: 4px var(--blue);
+        text-shadow: none;
+      }
+      .hero-text .tagline {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--blue-dark);
+        margin: 24px 0 36px;
+        max-width: 480px;
+        line-height: 1.6;
+        opacity: 0.85;
+        border-left: 5px solid var(--blue);
+        padding-left: 24px;
+      }
+      .hero-text .tagline .prince {
+        color: var(--blue);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .hero-image {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hero-image .img-wrapper {
+        width: 100%;
+        max-width: 350px;
+        aspect-ratio: 2/4;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transform: perspective(1000px) rotateY(-6deg) rotateX(3deg);
+        transition: var(--transition);
+        background: var(--blue);
+        position: relative;
+        animation: float 7s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% {
+          transform: perspective(1000px) rotateY(-6deg) rotateX(3deg)
+            translateY(0);
+        }
+        50% {
+          transform: perspective(1000px) rotateY(-6deg) rotateX(3deg)
+            translateY(-24px);
+        }
+        100% {
+          transform: perspective(1000px) rotateY(-6deg) rotateX(3deg)
+            translateY(0);
+        }
+      }
+      .hero-image .img-wrapper:hover {
+        transform: perspective(1000px) rotateY(-3deg) rotateX(2deg) scale(1.02);
+        animation-play-state: paused;
+      }
+      .hero-image .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+      }
+      .hero-image .paint-stroke {
+        position: absolute;
+        bottom: -30px;
+        right: -30px;
+        width: 200px;
+        height: 140px;
+        background: var(--blue);
+        opacity: 0.1;
+        border-radius: 60% 40% 50% 30%;
+        transform: rotate(20deg);
+        z-index: 0;
+        pointer-events: none;
+        animation: paintFloat 9s ease-in-out infinite alternate;
+      }
+      .hero-image .paint-stroke-2 {
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        width: 120px;
+        height: 120px;
+        background: var(--blue);
+        opacity: 0.06;
+        border-radius: 30% 60% 40% 50%;
+        transform: rotate(-25deg);
+        z-index: 0;
+        pointer-events: none;
+        animation: paintFloat 11s ease-in-out infinite alternate-reverse;
+      }
+      @keyframes paintFloat {
+        0% {
+          transform: rotate(20deg) scale(1);
+        }
+        100% {
+          transform: rotate(30deg) scale(1.15);
+        }
+      }
+      .float-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--blue);
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 0;
+        animation: shapeFloat 14s ease-in-out infinite alternate;
+      }
+      .float-shape-1 {
+        width: 360px;
+        height: 360px;
+        top: 8%;
+        left: -8%;
+      }
+      .float-shape-2 {
+        width: 240px;
+        height: 240px;
+        bottom: 8%;
+        right: -6%;
+        animation-delay: -5s;
+      }
+      @keyframes shapeFloat {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(40px, -40px) scale(1.1);
+        }
+      }
+
+      /* ===== ABOUT (Blue) ===== */
+      .about-blue {
+        padding: 80px 0;
+        background: var(--blue);
+        position: relative;
+      }
+      .about-blue::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .about-blue .section-title {
+        color: var(--yellow);
+        text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .about-blue .section-sub {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .about-blue .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .about-blue .about-text p {
+        font-size: 1.15rem;
+        line-height: 1.9;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 22px;
+      }
+      .about-blue .about-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .about-blue .about-cards .glass-card {
+        text-align: center;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        transition: var(--transition);
+      }
+      .about-blue .about-cards .glass-card:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-6px);
+      }
+      .about-blue .about-cards .glass-card .icon {
+        font-size: 2.8rem;
+        color: var(--yellow);
+        margin-bottom: 8px;
+        display: block;
+      }
+      .about-blue .about-cards .glass-card h4 {
+        font-family: "Anton", sans-serif;
+        font-size: 1.1rem;
+        color: var(--yellow);
+        letter-spacing: 0.5px;
+      }
+      .about-blue .about-cards .glass-card p {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        opacity: 0.8;
+        margin-top: 4px;
+      }
+      .about-blue .img-card-only {
+        grid-column: 1 / 3;
+        border-radius: var(--radius);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .about-blue .img-card-only img {
+        width: 100%;
+        height: auto;
+        max-height: 780px;
+        object-fit: contain;
+        transition: var(--transition);
+      }
+
+      /* ===== CAREER TIMELINE ===== */
+      .career {
+        padding: 120px 0 100px;
+        background: var(--yellow);
+        position: relative;
+        overflow: hidden;
+      }
+      .career::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0L75 45L120 60L75 75L60 120L45 75L0 60L45 45z' fill='%230033a0' fill-opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+      }
+      .career .container {
+        position: relative;
+        z-index: 2;
+      }
+      .career-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      .career-grid .glass-card {
+        overflow: hidden;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: default;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        border-radius: 30px !important;
+        box-shadow: none !important;
+      }
+      .career-grid .glass-card:hover {
+        transform: translateY(-6px);
+      }
+      .career-grid .glass-card .card-photo {
+        position: relative;
+        height: 480px;
+        overflow: hidden;
+        background: transparent !important;
+      }
+      .career-grid .glass-card .card-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: all 0.4s ease;
+        display: block;
+      }
+      .career-grid .glass-card .club-crest {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Anton", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        border: 3px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        z-index: 2;
+        transition: all 0.3s ease;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      }
+      .career-grid .glass-card:hover .club-crest {
+        transform: scale(1.1);
+      }
+      .career-grid .glass-card .card-body {
+        padding: 24px 20px 20px;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+      .career-grid .glass-card .card-body .country-badge {
+        display: inline-block;
+        font-weight: 800;
+        font-size: 0.65rem;
+        padding: 4px 14px;
+        border-radius: 30px;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
+        font-family: "Inter", sans-serif;
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .career-grid .glass-card .card-body .card-title {
+        font-family: "Anton", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
+        color: #fff;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+        margin-bottom: 2px;
+      }
+      .career-grid .glass-card .card-body .card-sub {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin: 4px 0 16px;
+        font-family: "Inter", sans-serif;
+      }
+      .career-grid .glass-card .card-body .card-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        font-size: 0.8rem;
+      }
+      .career-grid .glass-card .card-body .card-stats span {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 12px 8px;
+        font-weight: 700;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 30px;
+        transition: all 0.3s ease;
+      }
+      .career-grid .glass-card:hover .card-body .card-stats span {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .career-grid .glass-card .card-body .card-stats b {
+        display: block;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        color: #fff;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        line-height: 1.1;
+        margin-bottom: 2px;
+      }
+
+      /* ===== CLUB-SPECIFIC THEMES ===== */
+      .career-grid .glass-card .club-crest.santos {
+        background: #696969;
+        color: #c69f0f;
+        border-color: #c69f0f;
+      }
+      .career-grid .glass-card:has(.santos) .card-body {
+        background: #696969;
+      }
+      .career-grid .glass-card:has(.santos) .card-body .country-badge {
+        background: #c69f0f;
+        color: #696969;
+      }
+      .career-grid .glass-card .club-crest.barca {
+        background: #a50044;
+        color: #edbb00;
+        border-color: #edbb00;
+      }
+      .career-grid .glass-card:has(.barca) .card-body {
+        background: #a50044;
+      }
+      .career-grid .glass-card:has(.barca) .card-body .country-badge {
+        background: #edbb00;
+        color: #004d98;
+      }
+      .career-grid .glass-card .club-crest.psg {
+        background: #001e62;
+        color: #da291c;
+        border-color: #da291c;
+      }
+      .career-grid .glass-card:has(.psg) .card-body {
+        background: #001e62;
+      }
+      .career-grid .glass-card:has(.psg) .card-body .country-badge {
+        background: #da291c;
+        color: #fff;
+      }
+      .career-grid .glass-card .club-crest.hilal {
+        background: #003da5;
+        color: #fff;
+        border-color: #fff;
+      }
+      .career-grid .glass-card:has(.hilal) .card-body {
+        background: #003da5;
+      }
+      .career-grid .glass-card:has(.hilal) .card-body .country-badge {
+        background: #165d31;
+        color: #fff;
+      }
+      .career-grid .glass-card .club-crest.brazil {
+        background: #009739;
+        color: #fedf00;
+        border-color: #fedf00;
+      }
+      .career-grid .glass-card:has(.brazil) .card-body {
+        background: #009739;
+      }
+      .career-grid .glass-card:has(.brazil) .card-body .country-badge {
+        background: #fedf00;
+        color: #009739;
+      }
+      .career-grid .glass-card .club-crest.santos2026 {
+        background: #000000;
+        color: #c69f0f;
+        border-color: #c69f0f;
+      }
+      .career-grid .glass-card:has(.santos2026) .card-body {
+        background: #000000;
+        border-top: 4px solid #c69f0f;
+      }
+      .career-grid .glass-card:has(.santos2026) .card-body .country-badge {
+        background: #c69f0f;
+        color: #000000;
+      }
+
+      /* ===== HIGHLIGHTS (BLUE) ===== */
+      .highlights {
+        padding: 120px 0;
+        background: var(--blue);
+        position: relative;
+        overflow: hidden;
+      }
+      .highlights::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .highlights .container {
+        position: relative;
+        z-index: 2;
+      }
+      .highlights .subhead {
+        color: var(--yellow);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 24px;
+        text-align: center;
+      }
+      .stats-grid .stat-item {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(6px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 24px 16px;
+        transition: var(--transition);
+      }
+      .stats-grid .stat-item:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-6px);
+        border-color: var(--yellow);
+      }
+      .stats-grid .stat-item i {
+        color: var(--yellow);
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        display: block;
+        opacity: 0.9;
+      }
+      .stats-grid .stat-number {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.6rem, 5vw, 4.2rem);
+        color: var(--yellow);
+        line-height: 1;
+        letter-spacing: 2px;
+      }
+      .stats-grid .stat-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 600;
+        margin-top: 6px;
+      }
+      .trophies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 24px;
+      }
+      .trophies-grid .trophy-item {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(6px);
+        border-radius: var(--radius);
+        padding: 32px 20px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: var(--transition);
+      }
+      .trophies-grid .trophy-item:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.12);
+        border-color: var(--yellow);
+      }
+      .trophies-grid .trophy-item .icon {
+        font-size: 2.6rem;
+        color: var(--yellow);
+        margin-bottom: 10px;
+        display: block;
+      }
+      .trophies-grid .trophy-item .name {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .trophies-grid .trophy-item .count {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.2rem;
+        color: var(--yellow);
+        line-height: 1.2;
+      }
+      .records-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+      }
+      .records-grid .record-item {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(6px);
+        border-radius: var(--radius);
+        padding: 30px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: var(--transition);
+      }
+      .records-grid .record-item:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--yellow);
+      }
+      .records-grid .record-item .record-icon {
+        font-size: 2.4rem;
+        color: var(--yellow);
+        margin-bottom: 12px;
+        display: block;
+      }
+      .records-grid .record-item .record-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.6rem;
+        color: var(--yellow);
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+      .records-grid .record-item .record-desc {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* ===== GALLERY ===== */
+      .gallery-new {
+        padding: 120px 0;
+        background: var(--yellow);
+        position: relative;
+        overflow: hidden;
+      }
+      .gallery-new::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0L75 45L120 60L75 75L60 120L45 75L0 60L45 45z' fill='%230033a0' fill-opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        opacity: 0.6;
+      }
+      .gallery-new .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin-bottom: 48px;
+      }
+      .filter-btn {
+        padding: 12px 32px;
+        border-radius: 60px;
+        border: 2px solid var(--blue);
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: var(--blue);
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      .filter-btn::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--blue);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s ease;
+        z-index: -1;
+      }
+      .filter-btn:hover::after,
+      .filter-btn.active::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        color: var(--yellow);
+        border-color: var(--blue);
+        box-shadow: 0 8px 30px rgba(0, 51, 160, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .gallery-item {
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        background: #eaeaea;
+        aspect-ratio: 4/3;
+        position: relative;
+      }
+      .gallery-item.hidden {
+        display: none;
+      }
+      .gallery-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 40px rgba(0, 51, 160, 0.15);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        display: block;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.04);
+      }
+
+      /* ===== LIGHTBOX ===== */
+      .lightbox-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.88);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+      .lightbox-overlay.open {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .lightbox-card {
+        max-width: 90vw;
+        max-height: 90vh;
+        background: transparent;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 60px 120px rgba(0, 0, 0, 0.5);
+        animation: zoomIn 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      @keyframes zoomIn {
+        0% {
+          transform: scale(0.85);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .lightbox-card .art {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: 85vh;
+      }
+      .lightbox-card .art img {
+        max-width: 90vw;
+        max-height: 85vh;
+        object-fit: contain;
+        display: block;
+        border-radius: 12px;
+      }
+      .lightbox-close {
+        position: fixed;
+        top: 24px;
+        right: 40px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 3.2rem;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        line-height: 1;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .lightbox-close:hover {
+        transform: rotate(90deg) scale(1.1);
+        color: var(--yellow);
+        background: rgba(255, 215, 0, 0.15);
+        border-color: var(--yellow);
+      }
+
+      /* ===== ICONIC MOMENTS ===== */
+      .moments-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      .moment-card {
+        border-radius: var(--radius);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        aspect-ratio: 4/3;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+      }
+      .moment-card:hover {
+        transform: translateY(-12px);
+        border-color: var(--yellow);
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+      .moment-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+      .moment-card:hover img {
+        transform: scale(1.06);
+      }
+      .moment-card .moment-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 50%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .moment-card:hover .moment-overlay {
+        opacity: 1;
+      }
+      .moment-card .moment-overlay .year {
+        font-family: "Anton", sans-serif;
+        font-size: 0.9rem;
+        color: var(--yellow);
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+      }
+      .moment-card .moment-overlay h4 {
+        font-family: "Anton", sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 2px;
+      }
+      .moment-card .moment-overlay p {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        line-height: 1.4;
+      }
+      .moment-card .moment-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: var(--yellow);
+        color: var(--blue-dark);
+        font-weight: 800;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 4px 14px;
+        border-radius: 60px;
+        z-index: 2;
+      }
+
+      /* ===== FAN ZONE ===== */
+      .fanzone-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .fanzone-text p {
+        font-size: 1.15rem;
+        opacity: 0.8;
+        margin-bottom: 24px;
+        color: var(--blue-dark);
+      }
+      .fanzone-social {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .fanzone-social a {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        padding: 14px 28px;
+        border-radius: 60px;
+        color: var(--blue);
+        font-weight: 600;
+        transition: var(--transition);
+        border: 2px solid rgba(0, 51, 160, 0.08);
+      }
+      .fanzone-social a:hover {
+        background: var(--blue);
+        color: var(--yellow);
+        transform: translateY(-6px);
+        border-color: var(--blue);
+      }
+      .fanzone-disclaimer {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        opacity: 0.6;
+        border-left: 4px solid var(--blue);
+        padding-left: 18px;
+        max-width: 480px;
+        color: var(--blue-dark);
+      }
+      .fanzone-form {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border-radius: var(--radius);
+        padding: 40px 36px;
+        border: 2px solid rgba(0, 51, 160, 0.08);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+        transition: var(--transition);
+      }
+      .fanzone-form:hover {
+        box-shadow: var(--shadow);
+        border-color: var(--blue);
+        background: rgba(255, 255, 255, 0.92);
+      }
+      .fanzone-form h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.2rem;
+        color: var(--blue);
+        margin-bottom: 14px;
+      }
+      .fanzone-form p {
+        color: var(--blue-dark);
+        opacity: 0.6;
+      }
+      .fanzone-form input,
+      .fanzone-form textarea {
+        width: 100%;
+        padding: 16px 20px;
+        margin-bottom: 18px;
+        border-radius: 14px;
+        border: 2px solid rgba(0, 51, 160, 0.08);
+        background: var(--white);
+        color: var(--black);
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        outline: none;
+        transition: var(--transition);
+      }
+      .fanzone-form input:focus,
+      .fanzone-form textarea:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 6px rgba(0, 51, 160, 0.06);
+      }
+      .fanzone-form textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .fanzone-form .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: var(--blue-dark);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 70px 0 40px;
+        border-top: 6px solid var(--yellow);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 50px;
+        padding-bottom: 36px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .footer-brand h3 {
+        font-family: "Anton", sans-serif;
+        font-size: 2.2rem;
+        color: var(--yellow);
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+      }
+      .footer-brand p {
+        font-size: 0.9rem;
+        max-width: 340px;
+        line-height: 1.7;
+        opacity: 0.7;
+      }
+      .footer-brand .social {
+        display: flex;
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .footer-brand .social a {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: var(--yellow);
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .footer-brand .social a:hover {
+        background: var(--yellow);
+        color: var(--blue);
+        transform: translateY(-6px);
+        border-color: var(--yellow);
+      }
+      .footer h4 {
+        color: var(--yellow);
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+      }
+      .footer ul {
+        list-style: none;
+      }
+      .footer ul li {
+        margin-bottom: 10px;
+      }
+      .footer ul a {
+        font-size: 0.9rem;
+        transition: var(--transition);
+        opacity: 0.7;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .footer ul a:hover {
+        opacity: 1;
+        color: var(--yellow);
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 32px;
+        font-size: 0.8rem;
+        opacity: 0.5;
+        letter-spacing: 0.5px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.8;
+      }
+      .footer-bottom span {
+        color: var(--yellow);
+        font-weight: 600;
+      }
+
+      /* ============================================================ */
+      /* ===== RESPONSIVE ===== */
+      /* ============================================================ */
+
+      @media (max-width: 1024px) {
+        .hero-grid,
+        .about-grid,
+        .fanzone-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .hero-text .tagline {
+          margin: 24px auto 36px;
+          border-left: none;
+          padding-left: 0;
+          max-width: 100%;
+        }
+        .hero-btns {
+          justify-content: center;
+        }
+        .hero-image .img-wrapper {
+          max-width: 400px;
+          margin: 0 auto;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .career-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+        .career-grid .glass-card .card-photo {
+          height: 380px;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .moments-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+        .navbar {
+          padding: 12px 20px;
+        }
+        .fan-strip {
+          font-size: 0.7rem;
+          padding: 8px 14px;
+        }
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+          padding: 16px 0 10px;
+          border-top: 1px solid rgba(0, 51, 160, 0.08);
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-hamburger {
+          display: block;
+        }
+        .nav-links .nav-social {
+          margin-top: 8px;
+        }
+
+        .hero {
+          padding: 110px 0 40px;
+        }
+        .hero-text h1 {
+          font-size: clamp(3rem, 12vw, 4.2rem);
+        }
+        .hero-text .tagline {
+          font-size: 1rem;
+        }
+        .hero-btns .btn {
+          padding: 14px 28px;
+          font-size: 0.85rem;
+        }
+        .hero-image .img-wrapper {
+          max-width: 280px;
+        }
+
+        /* ---- ABOUT (ریسپانسیو + تغییر ترتیب) ---- */
+        .about-blue .about-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .about-blue .about-cards {
+          order: -1; /* کارت‌ها اول بیایند */
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .about-blue .img-card-only {
+          grid-column: 1 / 3;
+        }
+        .about-blue .img-card-only img {
+          height: 300px;
+          object-fit: contain;
+        }
+        .about-blue .about-text {
+          order: 2; /* متن بعد از کارت‌ها بیاید */
+        }
+        .about-blue .about-text p {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: clamp(2.2rem, 7vw, 3.2rem);
+        }
+        .section-sub {
+          font-size: 0.9rem;
+          letter-spacing: 4px;
+        }
+        .section-pattern,
+        .section-blue,
+        .highlights,
+        .gallery-new,
+        .career {
+          padding: 80px 0 60px;
+        }
+        .mb-60 {
+          margin-bottom: 40px;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+        .stats-grid .stat-item {
+          padding: 18px 12px;
+        }
+        .stats-grid .stat-number {
+          font-size: 2.2rem;
+        }
+        .stats-grid .stat-item i {
+          font-size: 1.4rem;
+        }
+
+        .trophies-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+        .trophies-grid .trophy-item {
+          padding: 24px 16px;
+        }
+        .trophies-grid .trophy-item .count {
+          font-size: 1.8rem;
+        }
+
+        .records-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .records-grid .record-item {
+          padding: 24px 20px;
+        }
+        .records-grid .record-item .record-title {
+          font-size: 1.4rem;
+        }
+
+        .career-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .career-grid .glass-card .card-photo {
+          height: 260px;
+        }
+        .career-grid .glass-card .club-crest {
+          width: 44px;
+          height: 44px;
+          font-size: 0.7rem;
+          bottom: 10px;
+          right: 10px;
+        }
+        .career-grid .glass-card .card-body {
+          padding: 16px 14px 14px;
+        }
+        .career-grid .glass-card .card-body .card-title {
+          font-size: 1.3rem;
+        }
+        .career-grid .glass-card .card-body .card-stats b {
+          font-size: 1.3rem;
+        }
+        .career-grid .glass-card .card-body .card-stats span {
+          padding: 8px 6px;
+          font-size: 0.7rem;
+        }
+        .career-grid .glass-card .card-body .card-stats {
+          gap: 6px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+        .filter-btn {
+          padding: 8px 20px;
+          font-size: 0.7rem;
+        }
+        .filter-group {
+          gap: 8px;
+          margin-bottom: 30px;
+        }
+
+        .lightbox-close {
+          top: 16px;
+          right: 16px;
+          width: 44px;
+          height: 44px;
+          font-size: 2.4rem;
+        }
+        .lightbox-overlay {
+          padding: 20px;
+        }
+
+        .moments-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .moment-card .moment-overlay {
+          padding: 16px;
+        }
+        .moment-card .moment-overlay h4 {
+          font-size: 1.2rem;
+        }
+        .moment-card .moment-overlay p {
+          font-size: 0.75rem;
+        }
+        .moment-card .moment-badge {
+          font-size: 0.55rem;
+          padding: 3px 10px;
+          top: 10px;
+          right: 10px;
+        }
+
+        .fanzone-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .fanzone-form {
+          padding: 28px 20px;
+        }
+        .fanzone-form h3 {
+          font-size: 1.8rem;
+        }
+        .fanzone-social a {
+          padding: 10px 18px;
+          font-size: 0.85rem;
+        }
+        .fanzone-text p {
+          font-size: 1rem;
+        }
+        .fanzone-disclaimer {
+          max-width: 100%;
+        }
+
+        /* ---- FOOTER (ریسپانسیو) ---- */
+        .footer {
+          padding: 50px 0 30px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .footer-brand h3 {
+          font-size: 1.8rem;
+        }
+        .footer-brand p {
+          max-width: 100%;
+          font-size: 0.85rem;
+        }
+        .footer h4 {
+          font-size: 0.9rem;
+        }
+        .footer ul a {
+          font-size: 0.8rem;
+        }
+        .footer-bottom {
+          font-size: 0.7rem;
+          padding-top: 24px;
+        }
+
+        .subhead {
+          font-size: 1.4rem;
+          margin: 30px 0 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .hero {
+          padding: 100px 0 30px;
+        }
+        .hero-text h1 {
+          font-size: 2.8rem;
+        }
+        .hero-text .badge {
+          font-size: 0.65rem;
+          padding: 6px 16px;
+        }
+        .hero-btns .btn {
+          padding: 12px 22px;
+          font-size: 0.75rem;
+          gap: 8px;
+        }
+        .hero-image .img-wrapper {
+          max-width: 220px;
+        }
+
+        /* ---- ABOUT (موبایل کوچک) ---- */
+        .about-blue .about-cards {
+          grid-template-columns: 1fr;
+        }
+        .about-blue .img-card-only {
+          grid-column: 1;
+        }
+        .about-blue .img-card-only img {
+          height: 220px;
+        }
+        .about-blue .about-text p {
+          font-size: 0.95rem;
+        }
+        .about-blue .about-cards .glass-card {
+          padding: 12px 14px;
+        }
+        .about-blue .about-cards .glass-card .icon {
+          font-size: 2rem;
+        }
+        .about-blue .about-cards .glass-card h4 {
+          font-size: 1rem;
+        }
+        .about-blue .about-cards .glass-card p {
+          font-size: 0.75rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+        .stats-grid .stat-item {
+          padding: 14px 10px;
+        }
+        .stats-grid .stat-number {
+          font-size: 1.8rem;
+        }
+        .stats-grid .stat-label {
+          font-size: 0.6rem;
+          letter-spacing: 1px;
+        }
+        .stats-grid .stat-item i {
+          font-size: 1.2rem;
+        }
+
+        .trophies-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        .trophies-grid .trophy-item {
+          padding: 18px 12px;
+        }
+        .trophies-grid .trophy-item .count {
+          font-size: 1.6rem;
+        }
+        .trophies-grid .trophy-item .name {
+          font-size: 0.75rem;
+        }
+        .trophies-grid .trophy-item .icon {
+          font-size: 2rem;
+        }
+
+        .career-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .career-grid .glass-card .card-photo {
+          height: 280px;
+        }
+        .career-grid .glass-card .card-body .card-title {
+          font-size: 1.5rem;
+        }
+        .career-grid .glass-card .club-crest {
+          width: 50px;
+          height: 50px;
+          font-size: 0.8rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        .filter-btn {
+          padding: 6px 14px;
+          font-size: 0.6rem;
+          letter-spacing: 1px;
+        }
+
+        .moments-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .moment-card .moment-overlay h4 {
+          font-size: 1.1rem;
+        }
+
+        .fanzone-form {
+          padding: 20px 16px;
+        }
+        .fanzone-form h3 {
+          font-size: 1.5rem;
+        }
+        .fanzone-form input,
+        .fanzone-form textarea {
+          padding: 12px 16px;
+          font-size: 0.9rem;
+        }
+        .fanzone-social a {
+          padding: 8px 14px;
+          font-size: 0.75rem;
+          gap: 8px;
+        }
+
+        /* ---- FOOTER (موبایل کوچک) ---- */
+        .footer {
+          padding: 40px 0 24px;
+        }
+        .footer-grid {
+          gap: 24px;
+        }
+        .footer-brand h3 {
+          font-size: 1.5rem;
+        }
+        .footer-brand p {
+          font-size: 0.8rem;
+        }
+        .footer-brand .social a {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+        .footer h4 {
+          font-size: 0.8rem;
+          margin-bottom: 12px;
+        }
+        .footer ul li {
+          margin-bottom: 6px;
+        }
+        .footer ul a {
+          font-size: 0.75rem;
+        }
+        .footer-bottom {
+          font-size: 0.65rem;
+          line-height: 1.6;
+          padding-top: 20px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+        .section-sub {
+          font-size: 0.75rem;
+          letter-spacing: 3px;
+        }
+        .section-pattern,
+        .section-blue,
+        .highlights,
+        .gallery-new,
+        .career {
+          padding: 60px 0 40px;
+        }
+        .mb-60 {
+          margin-bottom: 30px;
+        }
+        .subhead {
+          font-size: 1.2rem;
+          margin: 24px 0 16px;
+        }
+
+        .nav-logo {
+          font-size: 1.5rem;
+        }
+        .nav-logo i {
+          font-size: 1.3rem;
+        }
+        .navbar {
+          padding: 10px 16px;
+        }
+        .nav-hamburger {
+          font-size: 1.5rem;
+        }
+
+        .lightbox-close {
+          top: 12px;
+          right: 12px;
+          width: 38px;
+          height: 38px;
+          font-size: 2rem;
+        }
+        .lightbox-overlay {
+          padding: 12px;
+        }
+        .lightbox-card .art img {
+          max-width: 100vw;
+          max-height: 80vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== FAN STRIP ===== -->
+    <div class="fan-strip">
+      <i class="fas fa-circle-info"></i> Unofficial fan tribute site — not
+      affiliated with Neymar Jr., his management, or any club.
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <i class="fas fa-futbol"></i>
+        <span>Neymar</span>Jr.
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#moments">Moments</a></li>
+        <li><a href="#fanzone">Fan Zone</a></li>
+        <li class="nav-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="float-shape float-shape-1"></div>
+      <div class="float-shape float-shape-2"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text reveal-left">
+            <span class="badge"
+              ><i class="fas fa-crown"></i> The Prince of Football</span
+            >
+            <h1>NEYMAR<br /><span class="highlight">JR.</span></h1>
+            <div class="tagline">
+              <span class="prince">👑 The Prince</span> of Brazilian football —
+              celebrating the dribbles, the flicks, and the joy that Neymar has
+              brought to the game for over a decade. Made by AhuraCode, for
+              fans.
+            </div>
+            <div class="hero-btns">
+              <a href="#career" class="btn btn-primary btn-glow"
+                ><i class="fas fa-chart-line"></i> Explore Career</a
+              >
+              <a href="#gallery" class="btn btn-secondary"
+                ><i class="fas fa-images"></i> View Gallery</a
+              >
+            </div>
+          </div>
+          <div class="hero-image reveal-right">
+            <div class="img-wrapper">
+              <img src="./img/Neymar - FootyRenders.png" alt="Neymar action" />
+              <div class="paint-stroke"></div>
+              <div class="paint-stroke-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT (Blue) ===== -->
+    <section class="about-blue" id="about">
+      <div class="container">
+        <div class="text-center reveal mb-60">
+          <span class="section-sub">The Legend</span>
+          <h2 class="section-title">About Neymar</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal-left">
+            <p>
+              Neymar da Silva Santos Júnior, born February 5, 1992, is a
+              Brazilian professional footballer widely regarded as one of the
+              best players of his generation. Renowned for his flair, dribbling,
+              and creativity, he began his career at Santos FC, where he
+              announced himself to the world by winning the Copa Libertadores in
+              2011.
+            </p>
+            <p>
+              He later moved to Barcelona, forming a historic attacking trio
+              with Messi and Suárez, winning the Champions League, La Liga, and
+              multiple domestic cups. In 2017, he transferred to Paris
+              Saint-Germain for a world-record fee, leading the club to numerous
+              Ligue 1 titles and a Champions League final. He then took on a new
+              challenge at Al Hilal in Saudi Arabia, adding more silverware to
+              his collection.
+            </p>
+            <p>
+              Now, in a fairytale turn of events, Neymar has returned to his
+              boyhood club Santos in 2026 to write the final chapter of his
+              legendary career. He continues to represent Brazil with pride,
+              holding the record as the nation's all-time top scorer with 80
+              goals in 130 appearances.
+            </p>
+          </div>
+          <div class="about-cards reveal-right">
+            <div class="img-card-only">
+              <img
+                src="./img/Neymar - FootyRenders (5).png"
+                alt="Neymar celebration"
+              />
+            </div>
+            <div class="glass-card">
+              <span class="icon"><i class="fas fa-trophy"></i></span>
+              <h4>27 Trophies</h4>
+              <p>Across all competitions</p>
+            </div>
+            <div class="glass-card">
+              <span class="icon"><i class="fas fa-futbol"></i></span>
+              <h4>128 Goals</h4>
+              <p>For Brazil national team</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CAREER TIMELINE ===== -->
+    <section class="career" id="career">
+      <div class="container">
+        <div class="text-center reveal mb-60">
+          <span class="section-sub">The Journey</span>
+          <h2 class="section-title">Career Timeline</h2>
+        </div>
+        <div class="career-grid">
+          <!-- 1. Santos -->
+          <div class="glass-card reveal" style="transition-delay: 0.05s">
+            <div class="card-photo">
+              <img
+                src="./img/gettyimages-116408830-612x612-removebg-preview.png"
+                alt="Santos"
+              />
+              <div class="club-crest santos">SFC</div>
+            </div>
+            <div class="card-body">
+              <span class="country-badge br">BRA</span>
+              <div class="card-title">Santos</div>
+              <div class="card-sub">2009 – 2013</div>
+              <div class="card-stats">
+                <span><b>225</b>apps</span>
+                <span><b>136</b>goals</span>
+                <span><b>64</b>assists</span>
+                <span><b>6</b>trophies</span>
+              </div>
+            </div>
+          </div>
+          <!-- 2. Barcelona -->
+          <div class="glass-card reveal" style="transition-delay: 0.1s">
+            <div class="card-photo">
+              <img src="./img/neymar-png-44964.png" alt="Barcelona" />
+              <div class="club-crest barca">FCB</div>
+            </div>
+            <div class="card-body">
+              <span class="country-badge es">ESP</span>
+              <div class="card-title">Barcelona</div>
+              <div class="card-sub">2013 – 2017</div>
+              <div class="card-stats">
+                <span><b>186</b>apps</span>
+                <span><b>105</b>goals</span>
+                <span><b>76</b>assists</span>
+                <span><b>8</b>trophies</span>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Paris SG -->
+          <div class="glass-card reveal" style="transition-delay: 0.15s">
+            <div class="card-photo">
+              <img src="./img/Neymar - FootyRenders (14).png" alt="PSG" />
+              <div class="club-crest psg">PSG</div>
+            </div>
+            <div class="card-body">
+              <span class="country-badge fr">FRA</span>
+              <div class="card-title">Paris SG</div>
+              <div class="card-sub">2017 – 2023</div>
+              <div class="card-stats">
+                <span><b>173</b>apps</span>
+                <span><b>118</b>goals</span>
+                <span><b>77</b>assists</span>
+                <span><b>13</b>trophies</span>
+              </div>
+            </div>
+          </div>
+          <!-- 4. Al‑Hilal -->
+          <div class="glass-card reveal" style="transition-delay: 0.2s">
+            <div class="card-photo">
+              <img src="./img/Neymar - FootyRenders (15).png" alt="Al Hilal" />
+              <div class="club-crest hilal">HIL</div>
+            </div>
+            <div class="card-body">
+              <span class="country-badge sa">KSA</span>
+              <div class="card-title">Al Hilal</div>
+              <div class="card-sub">2023 – 2025</div>
+              <div class="card-stats">
+                <span><b>7</b>apps</span>
+                <span><b>1</b>goal</span>
+                <span><b>3</b>assists</span>
+                <span><b>1</b>trophy</span>
+              </div>
+            </div>
+          </div>
+          <!-- 5. Brazil -->
+          <div class="glass-card reveal" style="transition-delay: 0.25s">
+            <div class="card-photo">
+              <img src="./img/Neymar - FootyRenders (6).png" alt="Brazil" />
+              <div class="club-crest brazil">BRA</div>
+            </div>
+            <div class="card-body">
+              <span class="country-badge int">INT</span>
+              <div class="card-title">Brazil</div>
+              <div class="card-sub">2010 – 2026</div>
+              <div class="card-stats">
+                <span><b>130</b>caps</span>
+                <span><b>80</b>goals</span>
+                <span><b>56</b>assists</span>
+                <span><b>1</b>Conf. Cup</span>
+              </div>
+            </div>
+          </div>
+          <!-- 6. Santos Return 2026 -->
+          <div class="glass-card reveal" style="transition-delay: 0.3s">
+            <div class="card-photo">
+              <img
+                src="./img/neymar-santos-brazilian-serie-a-brazil-brazilian-footballers-uniqrenders.com.png"
+                alt="Santos Return 2026"
+              />
+              <div class="club-crest santos2026">SFC</div>
+            </div>
+            <div class="card-body">
+              <span class="country-badge br">BRA</span>
+              <div class="card-title">Santos</div>
+              <div class="card-sub">2025 – Present</div>
+              <div class="card-stats">
+                <span><b>43</b>apps</span>
+                <span><b>17</b>goals</span>
+                <span><b>6</b>assists</span>
+                <span><b>0</b>trophies</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HIGHLIGHTS (Blue) ===== -->
+    <section class="highlights on-blue" id="highlights">
+      <div class="container">
+        <div class="text-center reveal mb-60">
+          <span class="section-sub">By The Numbers</span>
+          <h2 class="section-title">Career Highlights</h2>
+        </div>
+        <div class="stats-grid reveal">
+          <div class="stat-item">
+            <i class="fas fa-futbol"></i>
+            <div class="stat-number" data-target="457">0</div>
+            <div class="stat-label">Total Goals</div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-hands-helping"></i>
+            <div class="stat-number" data-target="282">0</div>
+            <div class="stat-label">Total Assists</div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-calendar-check"></i>
+            <div class="stat-number" data-target="764">0</div>
+            <div class="stat-label">Total Matches</div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-trophy"></i>
+            <div class="stat-number" data-target="27">0</div>
+            <div class="stat-label">Major Trophies</div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-users"></i>
+            <div class="stat-number" data-target="4">0</div>
+            <div class="stat-label">Clubs</div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-flag"></i>
+            <div class="stat-number" data-target="130">0</div>
+            <div class="stat-label">Brazil Caps</div>
+          </div>
+        </div>
+        <h3 class="subhead">Trophies &amp; Awards</h3>
+        <div class="trophies-grid">
+          <div class="trophy-item reveal" style="transition-delay: 0.05s">
+            <span class="icon"><i class="fas fa-trophy"></i></span>
+            <div class="count">11</div>
+            <div class="name">League Titles</div>
+          </div>
+          <div class="trophy-item reveal" style="transition-delay: 0.1s">
+            <span class="icon"><i class="fas fa-futbol"></i></span>
+            <div class="count">1</div>
+            <div class="name">UEFA Champions League</div>
+          </div>
+          <div class="trophy-item reveal" style="transition-delay: 0.15s">
+            <span class="icon"><i class="fas fa-globe-americas"></i></span>
+            <div class="count">1</div>
+            <div class="name">Copa Libertadores</div>
+          </div>
+          <div class="trophy-item reveal" style="transition-delay: 0.2s">
+            <span class="icon"><i class="fas fa-medal"></i></span>
+            <div class="count">1</div>
+            <div class="name">Olympic Gold</div>
+          </div>
+          <div class="trophy-item reveal" style="transition-delay: 0.25s">
+            <span class="icon"><i class="fas fa-star"></i></span>
+            <div class="count">3</div>
+            <div class="name">Player of the Year</div>
+          </div>
+          <div class="trophy-item reveal" style="transition-delay: 0.3s">
+            <span class="icon"><i class="fas fa-crown"></i></span>
+            <div class="count">1</div>
+            <div class="name">Confederations Cup</div>
+          </div>
+        </div>
+        <h3 class="subhead">Records &amp; Milestones</h3>
+        <div class="records-grid">
+          <div class="record-item reveal">
+            <span class="record-icon"><i class="fas fa-futbol"></i></span>
+            <div class="record-title">All-Time Top Scorer for Brazil</div>
+            <div class="record-desc">
+              80 goals in 130 caps, surpassing Pelé's legendary record.
+            </div>
+          </div>
+          <div class="record-item reveal" style="transition-delay: 0.1s">
+            <span class="record-icon"><i class="fas fa-medal"></i></span>
+            <div class="record-title">Most Trophies by a Brazilian</div>
+            <div class="record-desc">
+              27 major trophies across his club and international career.
+            </div>
+          </div>
+          <div class="record-item reveal" style="transition-delay: 0.2s">
+            <span class="record-icon"><i class="fas fa-clock"></i></span>
+            <div class="record-title">Fastest Goal in a Final</div>
+            <div class="record-desc">
+              Scored in under 2 minutes in the 2011 Copa Libertadores final.
+            </div>
+          </div>
+          <div class="record-item reveal" style="transition-delay: 0.3s">
+            <span class="record-icon"><i class="fas fa-star"></i></span>
+            <div class="record-title">Most Assists in a UCL Season</div>
+            <div class="record-desc">
+              10 assists in the 2016–17 Champions League campaign.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery-new" id="gallery">
+      <div class="container">
+        <div class="text-center reveal mb-60">
+          <span class="section-sub">Visuals</span>
+          <h2 class="section-title">Media Gallery</h2>
+        </div>
+        <div class="filter-group reveal">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="club">Club</button>
+          <button class="filter-btn" data-filter="brazil">Brazil</button>
+          <button class="filter-btn" data-filter="skills">Skills</button>
+          <button class="filter-btn" data-filter="awards">Awards</button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+      <span class="lightbox-close" id="lightbox-close">&times;</span>
+      <div class="lightbox-card">
+        <div class="art" id="lightbox-art"></div>
+      </div>
+    </div>
+
+    <!-- ===== ICONIC MOMENTS ===== -->
+    <section class="section-blue" id="moments">
+      <div class="container">
+        <div class="text-center reveal mb-60">
+          <span class="section-sub">History</span>
+          <h2 class="section-title">Iconic Moments</h2>
+        </div>
+        <div class="moments-grid">
+          <div class="moment-card reveal" style="transition-delay: 0.05s">
+            <img
+              src="./img/neymar-puskas-award_cgo5-8670-1347606287.jpg"
+              alt="Puskas Award Goal"
+            />
+            <span class="moment-badge">Puskás Award</span>
+            <div class="moment-overlay">
+              <span class="year">2011</span>
+              <h4>Stunning Solo Goal</h4>
+              <p>
+                While at Santos, he scored a stunning solo goal against
+                Flamengo, weaving past multiple defenders, which won the FIFA
+                Puskás Award.
+              </p>
+            </div>
+          </div>
+          <div class="moment-card reveal" style="transition-delay: 0.1s">
+            <img src="./img/images.jpg" alt="UCL Hat-trick" />
+            <span class="moment-badge">Hat-Trick</span>
+            <div class="moment-overlay">
+              <span class="year">2013</span>
+              <h4>UCL Hat-Trick vs Celtic</h4>
+              <p>
+                He scored a spectacular 13-minute hat-trick against Celtic in
+                the Champions League, signaling his arrival on the biggest
+                stage.
+              </p>
+            </div>
+          </div>
+          <div class="moment-card reveal" style="transition-delay: 0.15s">
+            <img src="./img/images (1).jpg" alt="La Remontada" />
+            <span class="moment-badge">Legendary Comeback</span>
+            <div class="moment-overlay">
+              <span class="year">2017</span>
+              <h4>La Remontada</h4>
+              <p>
+                He was the architect of Barcelona's miraculous 6-1 comeback
+                against PSG, scoring two goals and providing a crucial
+                last-minute assist.
+              </p>
+            </div>
+          </div>
+          <div class="moment-card reveal" style="transition-delay: 0.2s">
+            <img src="./img/images (2).jpg" alt="Record Transfer" />
+            <span class="moment-badge">Record Transfer</span>
+            <div class="moment-overlay">
+              <span class="year">2017</span>
+              <h4>€222M Move to PSG</h4>
+              <p>
+                His €222 million move from Barcelona to PSG remains the most
+                expensive transfer in football history, changing the landscape
+                of the sport.
+              </p>
+            </div>
+          </div>
+          <div class="moment-card reveal" style="transition-delay: 0.25s">
+            <img src="./img/images (3).jpg" alt="Brazil Top Scorer" />
+            <span class="moment-badge">Legendary Record</span>
+            <div class="moment-overlay">
+              <span class="year">2023</span>
+              <h4>Brazil's All-Time Top Scorer</h4>
+              <p>
+                He surpassed the legendary Pelé to become Brazil's all-time
+                leading goalscorer with 80 goals in 130 appearances.
+              </p>
+            </div>
+          </div>
+          <div class="moment-card reveal" style="transition-delay: 0.3s">
+            <img src="./img/images (4).jpg" alt="2015 Treble" />
+            <span class="moment-badge">Treble Winner</span>
+            <div class="moment-overlay">
+              <span class="year">2015</span>
+              <h4>The 2015 Treble</h4>
+              <p>
+                He was a key figure in Barcelona's treble-winning season (La
+                Liga, Copa del Rey &amp; Champions League), scoring in the
+                final.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAN ZONE ===== -->
+    <section class="section-pattern" id="fanzone">
+      <div class="container">
+        <div class="text-center reveal mb-60">
+          <span class="section-sub">Community</span>
+          <h2 class="section-title">Fan Zone</h2>
+        </div>
+        <div class="fanzone-content">
+          <div class="fanzone-text reveal-left">
+            <p>
+              Join the global community of Neymar fans. Follow the accounts
+              below for updates, and share your own favorite moments with other
+              supporters.
+            </p>
+            <div class="fanzone-social">
+              <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+              <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+              <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+              <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+            </div>
+            <p class="fanzone-disclaimer">
+              Heads up: this is an independent fan project with no direct line
+              to Neymar, his staff, or any club. Messages left here go into our
+              community wall, not to Neymar's team.
+            </p>
+          </div>
+          <div class="fanzone-form reveal-right">
+            <h3>Leave a Message for Fellow Fans</h3>
+            <p style="opacity: 0.6; margin-bottom: 16px">
+              Share a memory, a favorite goal, or just your support.
+            </p>
+            <form id="fanForm">
+              <input type="text" placeholder="Your Name" required />
+              <textarea placeholder="Your Message..."></textarea>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="width: 100%; justify-content: center"
+              >
+                <i class="fas fa-paper-plane"></i> Post to Fan Wall
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>
+              <i class="fas fa-futbol" style="margin-right: 10px"></i>Neymar Jr.
+              — Fan Page
+            </h3>
+            <p>
+              An independent, fan-made tribute celebrating the skill, flair, and
+              joy Neymar brings to the beautiful game.
+            </p>
+            <div class="social">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#career">Career</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>More</h4>
+            <ul>
+              <li><a href="#moments">Moments</a></li>
+              <li><a href="#fanzone">Fan Zone</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2026 <span>Neymar Jr. Fan Page</span> — an unofficial tribute
+          made by fans, for fans. Not affiliated with or endorsed by Neymar Jr.,
+          his representatives, or any club named on this page. All photos are
+          placeholder stock imagery. <br />
+          <span style="color: #ffd700; font-weight: 600"
+            >Developed with ❤️ by Ahura</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // ---- NAVBAR ----
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+        hamburger.addEventListener("click", function () {
+          navLinks.classList.toggle("open");
+          const icon = this.querySelector("i");
+          icon.classList.toggle("fa-bars");
+          icon.classList.toggle("fa-times");
+        });
+
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 60) navbar.classList.add("scrolled");
+          else navbar.classList.remove("scrolled");
+        });
+
+        document
+          .querySelectorAll('.nav-links a[href^="#"]')
+          .forEach(function (link) {
+            link.addEventListener("click", function (e) {
+              const targetId = this.getAttribute("href");
+              if (targetId === "#") return;
+              e.preventDefault();
+              const target = document.querySelector(targetId);
+              if (target) {
+                const offset = 90;
+                const top =
+                  target.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  offset;
+                window.scrollTo({ top, behavior: "smooth" });
+                navLinks.classList.remove("open");
+                const icon = hamburger.querySelector("i");
+                icon.classList.add("fa-bars");
+                icon.classList.remove("fa-times");
+              }
+            });
+          });
+
+        const sections = document.querySelectorAll("section[id]");
+        const navLinkItems = document.querySelectorAll(
+          '.nav-links a[href^="#"]',
+        );
+        window.addEventListener("scroll", function () {
+          let current = "";
+          sections.forEach(function (section) {
+            const top = section.offsetTop - 130;
+            if (window.pageYOffset >= top) current = section.getAttribute("id");
+          });
+          navLinkItems.forEach(function (link) {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + current)
+              link.classList.add("active");
+          });
+        });
+
+        // ---- COUNTERS ----
+        const counters = document.querySelectorAll(".stat-number");
+        let counterAnimated = false;
+
+        function animateCounters() {
+          if (counterAnimated || counters.length === 0) return;
+          const trigger = counters[0].closest(".highlights");
+          if (!trigger) return;
+          const rect = trigger.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 80) {
+            counterAnimated = true;
+            counters.forEach(function (counter) {
+              const target = parseInt(counter.getAttribute("data-target"));
+              const duration = 2200;
+              const startTime = performance.now();
+
+              function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const currentVal = Math.floor(eased * target);
+                counter.textContent = currentVal;
+                if (progress < 1) requestAnimationFrame(updateCounter);
+                else counter.textContent = target;
+              }
+              requestAnimationFrame(updateCounter);
+            });
+          }
+        }
+        window.addEventListener("scroll", animateCounters);
+        animateCounters();
+
+        // ---- REVEAL ----
+        const revealEls = document.querySelectorAll(
+          ".reveal, .reveal-left, .reveal-right",
+        );
+
+        function checkReveals() {
+          const windowHeight = window.innerHeight;
+          revealEls.forEach(function (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < windowHeight - 120) el.classList.add("visible");
+          });
+        }
+        window.addEventListener("scroll", checkReveals);
+        window.addEventListener("resize", checkReveals);
+        checkReveals();
+
+        // ---- FAN FORM ----
+        document
+          .getElementById("fanForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert(
+              "Thanks for your message! It's been added to the fan wall. (Demo)",
+            );
+            this.reset();
+          });
+
+        // ---- GALLERY ----
+        const galleryData = [
+          {
+            cat: "club",
+            img: "./img/depositphotos_72167049-stock-photo-neymar-da-silva-of-fc.jpg",
+          },
+          {
+            cat: "brazil",
+            img: "./img/depositphotos_696769644-stock-photo-rio-janeiro-brazil-march-2023.jpg",
+          },
+          {
+            cat: "skills",
+            img: "./img/depositphotos_137199360-stock-photo-villarreal-cf-vs-fc-barcelona.jpg",
+          },
+          {
+            cat: "brazil",
+            img: "./img/depositphotos_201073984-stock-photo-2018-saint-petersburg-russian-neymar.jpg",
+          },
+          { cat: "skills", img: "./img/1.jpg" },
+          { cat: "club", img: "./img/2.jpg" },
+          { cat: "club", img: "./img/3.jpg" },
+          { cat: "skills", img: "./img/4.jpg" },
+          { cat: "skills", img: "./img/5.jpg" },
+          { cat: "club", img: "./img/6.jpg" },
+          { cat: "awards", img: "./img/7.jpg" },
+          { cat: "club", img: "./img/8.jpg" },
+          { cat: "awards", img: "./img/9.jpg" },
+          { cat: "skills", img: "./img/10.jpg" },
+          { cat: "club", img: "./img/11.jpg" },
+          { cat: "club", img: "./img/12.jpg" },
+          { cat: "awards", img: "./img/13.jpg" },
+          { cat: "brazil", img: "./img/14.jpg" },
+          { cat: "club", img: "./img/15.jpg" },
+        ];
+
+        const grid = document.getElementById("gallery-grid");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxClose = document.getElementById("lightbox-close");
+        const lightboxArt = document.getElementById("lightbox-art");
+
+        galleryData.forEach(function (item) {
+          const el = document.createElement("div");
+          el.className = "gallery-item";
+          el.setAttribute("data-cat", item.cat);
+          el.innerHTML = `<img src="${item.img}" alt="Neymar" loading="lazy" />`;
+          el.addEventListener("click", function () {
+            lightboxArt.innerHTML = `<img src="${item.img}" alt="Neymar" />`;
+            lightbox.classList.add("open");
+            document.body.style.overflow = "hidden";
+          });
+          grid.appendChild(el);
+        });
+
+        document.querySelectorAll(".filter-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            document.querySelectorAll(".filter-btn").forEach(function (b) {
+              b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            const filter = btn.getAttribute("data-filter");
+            const items = document.querySelectorAll(".gallery-item");
+
+            items.forEach(function (item) {
+              const cat = item.getAttribute("data-cat");
+              const shouldHide = filter !== "all" && cat !== filter;
+              item.classList.toggle("hidden", shouldHide);
+            });
+          });
+        });
+
+        function closeLightbox() {
+          lightbox.classList.remove("open");
+          document.body.style.overflow = "auto";
+        }
+
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) closeLightbox();
+        });
+        window.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeLightbox();
+        });
+
+        console.log("🔥 Gallery — fully responsive with grid layout. 🇧🇷⚽");
+      });
+    </script>
+  </body>
+</html>
