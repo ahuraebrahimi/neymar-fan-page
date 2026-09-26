@@ -8,6 +8,7 @@
   <strong>A modern, fully responsive fan tribute website dedicated to Neymar Jr.</strong><br>
   Built with <strong>HTML5</strong>, <strong>CSS3</strong>, and <strong>Vanilla JavaScript</strong>.
 </p>
+
 https://ahuraebrahimi.github.io/neymar-fan-page/
 ---
 
